@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* prettier-ignore */
+@plugin "../../src/plugin.ts";
