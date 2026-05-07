@@ -1,6 +1,6 @@
 基于 Antd Design Token 的 tailwindcss 插件。
 
-[English](./README.md) | 简体中文
+[English](./README.en-US.md) | 简体中文
 
 # 项目介绍
 
