@@ -1,6 +1,6 @@
 {
   "name": "tailwind-preset-antd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Use Tailwind CSS with Ant Design tokens",
   "homepage": "https://github.com/json-q/tailwind-preset-antd",
   "license": "MIT",
