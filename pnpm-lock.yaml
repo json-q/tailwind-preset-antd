@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       antd:
-        specifier: '>=5.12.0'
+        specifier: '>=5'
         version: 6.3.7(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       hex-rgb:
         specifier: ^5.0.0
