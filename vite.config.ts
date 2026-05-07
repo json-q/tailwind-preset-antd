@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   root: "./playground",
   plugins: [react(), tailwindcss()],
+  base: "/tailwind-preset-antd",
   build: {
     outDir: "docs-dist",
   },
