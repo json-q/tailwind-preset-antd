@@ -15,7 +15,7 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       react:
-        specifier: '>=18'
+        specifier: '>=16.9.0'
         version: 19.2.6
     devDependencies:
       '@tailwindcss/vite':

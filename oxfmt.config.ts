@@ -14,9 +14,6 @@ export default defineConfig({
   singleQuote: false,
   sortPackageJson: true,
   trailingComma: "es5",
-  sortTailwindcss: {
-    functions: ["clsx", "cn"],
-    preserveWhitespace: true,
-  },
-  ignorePatterns: ["**/node_modules/**", "**/dist/**", "**/pnpm-lock.yaml"],
+  sortTailwindcss: true,
+  ignorePatterns: ["**/node_modules/**", "**/dist/**", "**/docs-dist", "**/pnpm-lock.yaml"],
 });
