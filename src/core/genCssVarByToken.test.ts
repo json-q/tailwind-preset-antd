@@ -12,18 +12,22 @@ describe("createColorPalettes", () => {
     expect(result).toContain("--css-var-colorSuccess:0, 255, 0;");
   });
 
-  it("should generate css variables for color palettes", () => {
+  it("should generate css variables for antd v6 or v5 color palettes", () => {
     const tokens = {
       red: "#ff0000",
       red1: "#ff7875",
+      "red-1": "#ff7875",
       blue: "#1890ff",
       blue5: "#096dd9",
+      "blue-5": "#096dd9",
     } as any;
     const result = genCSSVarByTokens(tokens, "--css-var");
     expect(result).toContain("--css-var-red:255, 0, 0;");
     expect(result).toContain("--css-var-red1:255, 120, 117;");
+    expect(result).toContain("--css-var-red-1:255, 120, 117;");
     expect(result).toContain("--css-var-blue:24, 144, 255;");
     expect(result).toContain("--css-var-blue5:9, 109, 217;");
+    expect(result).toContain("--css-var-blue-5:9, 109, 217;");
   });
 
   it("should ignore startWith rgb", () => {

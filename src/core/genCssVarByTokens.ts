@@ -27,37 +27,38 @@ export function genCSSVarByTokens(
     ...fontSizes,
   ];
 
-  presetTokens.forEach((key) => {
+  for (let i = 0; i < presetTokens.length; i++) {
+    const key = presetTokens[i];
     const value = tokens[key];
 
     if (value === undefined && process.env.NODE_ENV !== "production") {
       console.warn(`[tailwind-preset-antd]: ${key} is not defined in antd design token`);
-      return;
+      continue;
     }
 
     // https://v3.tailwindcss.com/docs/customizing-colors#using-css-variables
     if (colorPalettes.includes(key as any)) {
       colorsVariables += `--${cssVarPrefix}-${key}:${hexToRgb(value as string)};`;
-      return;
+      continue;
     }
 
     if (functionalColors.includes(key)) {
       const rgb = hexToRgb(value as string);
       colorsVariables += `--${cssVarPrefix}-${key}:${rgb};`;
-      return;
+      continue;
     }
 
     if (semanticColors.includes(key)) {
       const rgb = isRGBColor(value as string) ? value : `rgb(${hexToRgb(value as string)})`;
       colorsVariables += `--${cssVarPrefix}-${key}:${rgb};`;
-      return;
+      continue;
     }
 
     if (fontSizes.includes(key) || margins.includes(key) || borderRadius.includes(key)) {
       colorsVariables += `--${cssVarPrefix}-${key}:${value}px;`;
-      return;
+      continue;
     }
-  });
+  }
 
   return colorsVariables;
 }
