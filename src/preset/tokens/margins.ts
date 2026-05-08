@@ -1,5 +1,7 @@
+import type { AliasTokenKey } from "../../utils/type";
+
 // Spacing
-export const margins = [
+export const margins: AliasTokenKey[] = [
   "marginXXS", // 4
   "marginXS", // 8
   "marginSM", // 12

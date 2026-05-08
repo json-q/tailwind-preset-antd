@@ -1,4 +1,6 @@
-const brandColors = [
+import type { AliasTokenKey } from "../../utils/type";
+
+const brandColors: AliasTokenKey[] = [
   "colorPrimary",
   "colorPrimaryBg",
   "colorPrimaryBgHover",
@@ -11,7 +13,7 @@ const brandColors = [
   "colorPrimaryTextActive",
 ];
 
-const successColors = [
+const successColors: AliasTokenKey[] = [
   "colorSuccess",
   "colorSuccessBg",
   "colorSuccessBgHover",
@@ -24,7 +26,7 @@ const successColors = [
   "colorSuccessTextActive",
 ];
 
-const warningColors = [
+const warningColors: AliasTokenKey[] = [
   "colorWarning",
   "colorWarningBg",
   "colorWarningBgHover",
@@ -37,7 +39,7 @@ const warningColors = [
   "colorWarningTextActive",
 ];
 
-const errorColors = [
+const errorColors: AliasTokenKey[] = [
   "colorError",
   "colorErrorBg",
   "colorErrorBgHover",
@@ -50,7 +52,7 @@ const errorColors = [
   "colorErrorTextActive",
 ];
 
-const infoColors = [
+const infoColors: AliasTokenKey[] = [
   "colorInfo",
   "colorInfoBg",
   "colorInfoBgHover",
@@ -63,7 +65,7 @@ const infoColors = [
   "colorInfoTextActive",
 ];
 
-export const functionalColors = [
+export const functionalColors: AliasTokenKey[] = [
   ...brandColors,
   ...successColors,
   ...warningColors,

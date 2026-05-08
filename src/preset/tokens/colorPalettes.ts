@@ -1,5 +1,10 @@
-// https://ant.design/docs/spec/colors#base-color-palettes
-export const colors = [
+import type { ColorPalettes, LegacyColorPalettes } from "antd/es/theme/interface";
+import type { PresetColorKey } from "antd/es/theme/internal";
+
+export type PresetColorPalettes = ColorPalettes & PresetColorKey & LegacyColorPalettes;
+
+// https://github.com/ant-design/ant-design/blob/master/components/theme/interface/presetColors.ts#L1-L15
+export const colors: PresetColorKey[] = [
   "red",
   "volcano",
   "orange",
@@ -16,9 +21,12 @@ export const colors = [
 
 export const colorPaletteCount = 10;
 /**
- * `['red', 'red-1', 'red-2', ……, 'red-10', 'magenta',……]`
+ * `['red', 'red1', 'red2', ……, 'red10', 'magenta',……]`
  */
 export const colorPalettes = colors.flatMap((color) => [
   color,
+  // antd v6 https://github.com/ant-design/ant-design/blob/master/components/theme/interface/presetColors.ts#L23-L32
+  ...Array.from({ length: colorPaletteCount }, (_, i) => `${color}${i + 1}`),
+  // antd v5 https://github.com/ant-design/ant-design/blob/5.0.0/components/theme/interface.ts#L74
   ...Array.from({ length: colorPaletteCount }, (_, i) => `${color}-${i + 1}`),
-]);
+]) as PresetColorPalettes[];

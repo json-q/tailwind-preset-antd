@@ -1,4 +1,6 @@
-export const semanticColors = [
+import type { AliasTokenKey } from "../../utils/type";
+
+export const semanticColors: AliasTokenKey[] = [
   // Text
   "colorText",
   "colorTextSecondary",

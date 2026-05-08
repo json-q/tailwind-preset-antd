@@ -18,28 +18,46 @@ export function genCSSVarByTokens(
 ) {
   let colorsVariables = "";
 
-  for (const [key, value] of Object.entries(tokens)) {
+  const presetTokens = [
+    ...colorPalettes,
+    ...functionalColors,
+    ...semanticColors,
+    ...margins,
+    ...borderRadius,
+    ...fontSizes,
+  ];
+
+  presetTokens.forEach((key) => {
+    const value = tokens[key];
+
+    if (value === undefined && process.env.NODE_ENV !== "production") {
+      console.warn(`[tailwind-preset-antd]: ${key} is not defined in antd design token`);
+      return;
+    }
+
     // https://v3.tailwindcss.com/docs/customizing-colors#using-css-variables
-    if (colorPalettes.includes(key)) {
-      colorsVariables += `--${cssVarPrefix}-${key}:${hexToRgb(value)};`;
+    if (colorPalettes.includes(key as any)) {
+      colorsVariables += `--${cssVarPrefix}-${key}:${hexToRgb(value as string)};`;
+      return;
     }
 
     if (functionalColors.includes(key)) {
-      const rgb = hexToRgb(value);
+      const rgb = hexToRgb(value as string);
       colorsVariables += `--${cssVarPrefix}-${key}:${rgb};`;
-      continue;
+      return;
     }
 
     if (semanticColors.includes(key)) {
-      const rgb = isRGBColor(value) ? value : `rgb(${hexToRgb(value)})`;
+      const rgb = isRGBColor(value as string) ? value : `rgb(${hexToRgb(value as string)})`;
       colorsVariables += `--${cssVarPrefix}-${key}:${rgb};`;
-      continue;
+      return;
     }
 
     if (fontSizes.includes(key) || margins.includes(key) || borderRadius.includes(key)) {
       colorsVariables += `--${cssVarPrefix}-${key}:${value}px;`;
-      continue;
+      return;
     }
-  }
+  });
+
   return colorsVariables;
 }
