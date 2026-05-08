@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-// import type { PluginAPI } from "tailwindcss/plugin";
 import plugin from "tailwindcss/plugin";
 
 import { DEFAULT_CSS_VAR_PREFIX } from "./constants";
@@ -32,23 +31,18 @@ interface PluginWithOptions<T> {
 }
 
 /**
- * @description 使用 Ant Design 的 Design Token 扩展 Tailwind CSS 类名，相关扩展有 color radius fontSize padding
+ * @description Based on Antd Design Token to customize TailwindCSS styles, related extensions include `color`, `borderRadius`, `fontSize`, and `margin(gap)`.
  * @example `bg-colorPrimary` --> `backgroundColor: token.colorPrimary`;
- * @see https://ant-design.antgroup.com/docs/react/customize-theme-cn#seedtoken
+ * @see https://ant.design/docs/react/customize-theme-cn#maptoken
  * @see https://github.com/tailwindlabs/tailwindcss/discussions/13292#discussioncomment-14256365
  */
 const twAntdPresetPlugin: PluginWithOptions<PluginOptions> = plugin.withOptions(
-  () => () => {
-    /* empty */
-  },
+  () => () => {},
   (options: PluginOptions = {}) => {
     const { cssVarPrefix = DEFAULT_CSS_VAR_PREFIX, twPrefix = "" } = options;
 
     return {
       theme: {
-        /**
-         * @see https://tailwindcss.com/docs/customizing-colors#using-css-variables
-         */
         extend: {
           colors: {
             ...createColorPalettes(cssVarPrefix, twPrefix),

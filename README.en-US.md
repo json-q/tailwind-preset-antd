@@ -1,13 +1,10 @@
-A tailwindcss plugin based on antd Design Token.
+Use antd design token like using tailwindcss.
 
-English | [简体中文](./README.zh-CN.md)
+Provides common antd design token easier to use. Recommended to use antd v6 and tailwindcss v4, but also supports antd v5 and tailwindcss v3.
+
+[简体中文](./README.md) | English
 
 # Project Introduction
-
-Version requirements:
-
-- antd >= 5
-- tailwindcss >= 3
 
 Before:
 
@@ -31,43 +28,9 @@ function App() {
 
 ## Basic Usage
 
-### tailwindcss v3
-
-1. Register tailwind plugin
-
-```js
-// tailwind.config.ts
-import type { Config } from "tailwindcss/types/config";
-import antdThemePreset from "tailwind-preset-antd/plugin";
-
-const config: Config = {
-  // ...
-  // or custom plugins config: [antdThemePreset({ twPrefix: 'ant', cssVarPrefix: 'abcd' })],
-  plugins: [antdThemePreset],
-};
-
-export default config;
-```
-
-2. Register global css variables based on antd token
-
-```jsx
-import { AntdTokenCssVar } from "tailwind-preset-antd/components";
-
-export default function App() {
-  return (
-    <>
-      <AntdTokenCssVar />
-    </>
-  );
-}
-```
-
-If you use the `tailwind-merge` plugin, you need to add `fontSizes` to its configuration. See [Using with tailwind-merge](#using-with-tailwind-merge) for details
-
 ### tailwindcss v4
 
-See [How can I pass parameters to a TailwindCSS plugin in a CSS-first configuration?](https://github.com/tailwindlabs/tailwindcss/discussions/15997)
+Use plugin in your css
 
 ```css
 @plugin "tailwind-preset-antd/plugin";
@@ -80,8 +43,10 @@ See [How can I pass parameters to a TailwindCSS plugin in a CSS-first configurat
 */
 ```
 
-```jsx
-import { AntdTokenCssVar } from "tailwind-preset-antd/components";
+Inject css variables component in any component
+
+```tsx
+import AntdTokenCssVar from "tailwind-preset-antd/components";
 
 export default function App() {
   return (
@@ -92,14 +57,48 @@ export default function App() {
 }
 ```
 
+### tailwindcss v3
+
+Use plugin in your `tailwind.config.ts`
+
+```ts
+// tailwind.config.ts
+import type { Config } from "tailwindcss/types/config";
+import tailwindPresetAntd from "tailwind-preset-antd/plugin";
+
+const config: Config = {
+  // ...
+  // or custom plugins config: [tailwindPresetAntd({ twPrefix: 'ant', cssVarPrefix: 'abcd' })],
+  plugins: [tailwindPresetAntd],
+};
+
+export default config;
+```
+
+Inject css variables component in any component
+
+```tsx
+import AntdTokenCssVar from "tailwind-preset-antd/components";
+
+export default function App() {
+  return (
+    <>
+      <AntdTokenCssVar />
+    </>
+  );
+}
+```
+
+If you use the `tailwind-merge` plugin, additional configuration is required. See [Using with tailwind-merge](#using-with-tailwind-merge) for details
+
 ## Configuration Options
 
 - `twPrefix`: tw class name prefix, default is `''`
-- `cssVarPrefix`: Generated css var variable prefix, default is `'a'`
+- `cssVarPrefix`: Generated css var variable prefix, default is `'a'` (you must also set `AntdTokenCssVar`'s `cssVarPrefix`)
 
 For example: when `twPrefix` is `ant` and `cssVarPrefix` is `abcd`, the generated css var variable and style are as follows:
 
-```jsx
+```tsx
 /**
  * :root{
  *  --abcd-colorPrimary: 47 84 235;
@@ -109,7 +108,7 @@ function App() {
   return <div className="bg-ant-colorPrimary"></div>;
 }
 
-// Generated css: .bg-ant-colorPrimary { background-color: rgb(var(--a-colorPrimary)); }
+// Generated css: .bg-ant-colorPrimary { background-color: rgb(var(--abcd-colorPrimary)); }
 ```
 
 ### Using with tailwind-merge
