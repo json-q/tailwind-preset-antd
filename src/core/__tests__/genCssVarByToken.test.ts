@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { genCSSVarByTokens } from "./genCssVarByTokens";
+import { genCSSVarByTokens } from "../genCssVarByTokens";
 
 describe("createColorPalettes", () => {
   it("should generate css variables correctly", () => {

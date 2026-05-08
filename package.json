@@ -33,7 +33,7 @@
     "test": "vitest",
     "ui": "vitest --ui",
     "snapshot": "vitest -u",
-    "coverage": "vitest --coverage",
+    "coverage": "vitest run --coverage",
     "release": "bumpp",
     "prepublishOnly": "pnpm run build",
     "lint:package": "publint",
@@ -70,7 +70,7 @@
   },
   "peerDependencies": {
     "antd": ">=5",
-    "react": ">=18",
+    "react": ">=16.9.0",
     "tailwindcss": "^3 || ^4"
   }
 }

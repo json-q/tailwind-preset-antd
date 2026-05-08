@@ -4,8 +4,8 @@ import {
   createFontSize,
   createSpacing,
   createBorderRadius,
-} from "../core/genTailwindTheme";
-import { colorPalettes } from "../preset";
+} from "../genTailwindTheme";
+import { colorPalettes } from "../../preset";
 
 describe("createColorPalettes", () => {
   it("should create color palette variables with default prefix", () => {
