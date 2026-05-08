@@ -31,8 +31,10 @@ export function genCSSVarByTokens(
     const key = presetTokens[i];
     const value = tokens[key];
 
-    if (value === undefined && process.env.NODE_ENV !== "production") {
-      console.warn(`[tailwind-preset-antd]: ${key} is not defined in antd design token`);
+    if (value === undefined) {
+      if (process.env.NODE_ENV === "development") {
+        console.warn(`[tailwind-preset-antd]: ${key} is not defined in antd design token`);
+      }
       continue;
     }
 
