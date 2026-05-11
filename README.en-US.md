@@ -43,7 +43,7 @@ Use plugin in your css
 */
 ```
 
-Inject css variables component in any component
+Import `AntdTokenCssVar` in your component. If you use theme switching, `AntdTokenCssVar` must be used inside antd `ConfigProvider`
 
 ```tsx
 import AntdTokenCssVar from "tailwind-preset-antd/components";
@@ -75,7 +75,7 @@ const config: Config = {
 export default config;
 ```
 
-Inject css variables component in any component
+Import `AntdTokenCssVar` in your component. If you use theme switching, `AntdTokenCssVar` must be used inside antd `ConfigProvider`
 
 ```tsx
 import AntdTokenCssVar from "tailwind-preset-antd/components";
