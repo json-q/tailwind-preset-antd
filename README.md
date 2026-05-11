@@ -43,7 +43,7 @@ function App() {
  */
 ```
 
-在你的任意组件中注入 css 变量的组件
+在你的组件中导入 `AntdTokenCssVar`。如果你使用主题切换，则 `AntdTokenCssVar` 必须在 antd `ConfigProvider` 中使用
 
 ```tsx
 import AntdTokenCssVar from "tailwind-preset-antd/components";
@@ -75,7 +75,7 @@ const config: Config = {
 export default config;
 ```
 
-在你的任意组件中注入 css 变量的组件
+在你的组件中导入 `AntdTokenCssVar`。如果你使用主题切换，则 `AntdTokenCssVar` 必须在 antd `ConfigProvider` 中使用
 
 ```tsx
 import AntdTokenCssVar from "tailwind-preset-antd/components";

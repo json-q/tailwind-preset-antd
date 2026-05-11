@@ -2,3 +2,16 @@
 
 /* prettier-ignore */
 @plugin "../../src/plugin.ts";
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+@theme {
+  /* Disable tailwindcss colors */
+  --color-*: initial;
+}

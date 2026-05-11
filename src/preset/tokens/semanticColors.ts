@@ -19,6 +19,8 @@ export const semanticColors: AliasTokenKey[] = [
   "colorBgLayout",
   "colorBgSpotlight",
   "colorBgMask",
+  "colorBgTextHover",
+  "colorBgTextActive",
 
   // Border Color
   "colorBorder",

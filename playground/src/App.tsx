@@ -1,4 +1,5 @@
-import { Divider } from "antd";
+import Button from "./components/Button";
+import Card from "./components/Card";
 
 const colorPalettes = [
   "red",
@@ -167,60 +168,45 @@ const getColorClass = (color: string, index: number) => {
 
 export default function App() {
   return (
-    <div className="text-fontSize p-8">
-      <Divider>Tailwindcss color palettes for antd</Divider>
-      <div className="flex flex-col items-center gap-4 p-4">
-        {colorPalettes.map((color) => (
-          <div key={color} className="flex gap-1">
-            <div className="w-16 text-sm font-bold">{color}</div>
-            <div className="flex gap-1">
-              {Array.from({ length: 10 }, (_, i) => (
-                <div
-                  key={i}
-                  className={`${getColorClass(color, i)} text-colorTextLightSolid flex h-8 w-8 items-center justify-center rounded text-xs`}
-                >
-                  {i + 1}
+    <>
+      <p className="my-2 font-semibold">Current example use tailwindcss v4 & antd v6</p>
+      <div className="flex gap-4">
+        {/* <Divider>Tailwindcss color palettes for antd</Divider> */}
+        <Card title="Tailwindcss color palettes for antd">
+          <div className="flex flex-col items-center gap-4 p-4">
+            {colorPalettes.map((color) => (
+              <div key={color} className="flex gap-1">
+                <div className="w-16 text-sm font-bold">{color}</div>
+                <div className="flex gap-1">
+                  {Array.from({ length: 10 }, (_, i) => (
+                    <div
+                      key={i}
+                      className={`${getColorClass(color, i)} text-colorTextLightSolid flex h-8 w-8 items-center justify-center rounded text-xs`}
+                    >
+                      {i + 1}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <Divider>Rewrite antd component use plugin</Divider>
-      <div className="flex justify-center gap-6">
-        {/* Card */}
-        <div
-          style={{ width: 300 }}
-          className="text-colorTextHeading border-colorBorderSecondary rounded-borderRadiusLG flex flex-col justify-center border border-solid"
-        >
-          {/* header */}
-          <div className="px-marginLG border-colorBorderSecondary flex h-14 items-center border-b border-solid font-semibold">
-            <div className="flex w-full items-center">
-              <div className="inline-block flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
-                Default size card
               </div>
-              <div className="text-fontSize font-normal">
-                <a className="text-colorPrimary cursor-pointer">More</a>
-              </div>
-            </div>
+            ))}
           </div>
-          {/* content */}
-          <div className="p-marginLG">
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
+        </Card>
+        {/* <Divider>Rewrite antd component use plugin</Divider> */}
+        <Card title="Customized component use antd theme" style={{ height: "fit-content" }}>
+          <div className="flex justify-center gap-6">
+            <Card
+              style={{ width: 300 }}
+              title="Card title"
+              extra={<a className="text-colorPrimary cursor-pointer">More</a>}
+            >
+              <p>Card content</p>
+              <p>Card content</p>
+              <p>Card content</p>
+            </Card>
+            <Button>Primary Button</Button>
           </div>
-        </div>
-
-        {/* Button */}
-        <button
-          type="button"
-          className="px-margin rounded-borderRadius bg-colorPrimary text-colorTextLightSolid hover:bg-colorPrimaryHover active:bg-colorPrimaryActive h-8 cursor-pointer transition-colors"
-        >
-          Primary Button
-        </button>
+        </Card>
       </div>
-    </div>
+    </>
   );
 }
