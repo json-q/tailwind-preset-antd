@@ -6,5 +6,5 @@ export function isRGBColor(color: string) {
 
 export function hexToRgb(hex: string) {
   const { red, green, blue } = hexRgb(hex);
-  return `${red}, ${green}, ${blue}`;
+  return `${red} ${green} ${blue}`;
 }
