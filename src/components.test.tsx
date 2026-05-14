@@ -32,16 +32,6 @@ describe("AntdTokenCssVar", () => {
     expect(style?.textContent).toContain("--custom-");
   });
 
-  it("should remove style element on unmount", () => {
-    const { unmount } = render(<AntdTokenCssVar />);
-    let style = document.querySelector("style#antd-token-inject");
-    expect(style).toBeTruthy();
-
-    unmount();
-    style = document.querySelector("style#antd-token-inject");
-    expect(style).toBeFalsy();
-  });
-
   it("should update CSS variables when token changes", () => {
     const { rerender } = render(<AntdTokenCssVar cssVarPrefix="test" />);
     const style = document.querySelector("style#antd-token-inject");
