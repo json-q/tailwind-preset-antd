@@ -27,10 +27,6 @@ export default function AntdTokenCssVar(props: AntdTokenCssVarProps) {
       style.setAttribute("plugin-name", "tailwind-preset-antd");
       style.textContent = `:root{${cssVar}}`;
       document.head.appendChild(style);
-
-      return () => {
-        document.head.removeChild(style);
-      };
     },
     [token, cssVarPrefix]
   );
