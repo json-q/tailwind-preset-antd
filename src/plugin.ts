@@ -32,7 +32,7 @@ interface PluginWithOptions<T> {
 }
 
 /**
- * @description Based on Antd Design Token to customize TailwindCSS styles, related extensions include `color`, `borderRadius`, `fontSize`, and `margin(gap)`.
+ * @description Based on Antd Design Token to customize TailwindCSS styles, related extensions include `color`, `borderRadius`, `fontSize`, `margin(gap)` and `boxShadow`.
  * @example `bg-colorPrimary` --> `backgroundColor: token.colorPrimary`;
  * @see https://ant.design/docs/react/customize-theme-cn#maptoken
  * @see https://github.com/tailwindlabs/tailwindcss/discussions/13292#discussioncomment-14256365
