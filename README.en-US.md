@@ -1,6 +1,6 @@
 Use antd design token like using tailwindcss.
 
-Recommended to use antd v6 and tailwindcss v4, but also supports antd>=v5.12 (depends on antd cssVar variables) and tailwindcss v3.
+Recommended to use antd v6 and tailwindcss v4, but also supports antd v5 and tailwindcss v3.
 
 [简体中文](./README.md) | English
 
