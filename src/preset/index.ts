@@ -5,6 +5,7 @@ import { semanticColors } from "./tokens/semanticColors";
 export { margins } from "./tokens/margins";
 export { fontSizes } from "./tokens/fontSizes";
 export { borderRadius } from "./tokens/borderRadius";
+export { boxShadow } from "./tokens/boxShadow";
 
 export { functionalColors };
 export { colorPalettes };

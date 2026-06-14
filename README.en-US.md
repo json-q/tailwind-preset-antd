@@ -1,10 +1,14 @@
 Use antd design token like using tailwindcss.
 
-Provides common antd design token easier to use. Recommended to use antd v6 and tailwindcss v4, but also supports antd v5 and tailwindcss v3.
+Recommended to use antd v6 and tailwindcss v4, but also supports antd>=v5.12 (depends on antd cssVar variables) and tailwindcss v3.
 
 [简体中文](./README.md) | English
 
 # Project Introduction
+
+```bash
+npm i tailwind-preset-antd
+```
 
 Before:
 

@@ -10,6 +10,7 @@ import {
   functionalColors,
   margins,
   semanticColors,
+  boxShadow,
 } from "../preset";
 
 export function genCSSVarByTokens(
@@ -25,6 +26,7 @@ export function genCSSVarByTokens(
     ...margins,
     ...borderRadius,
     ...fontSizes,
+    ...boxShadow,
   ];
 
   for (let i = 0; i < presetTokens.length; i++) {
@@ -32,8 +34,9 @@ export function genCSSVarByTokens(
     const value = tokens[key];
 
     if (value === undefined) {
-      if (process.env.NODE_ENV === "development") {
-        console.warn(`[tailwind-preset-antd]: ${key} is not defined in antd design token`);
+      // prevent error in test
+      if (process.env.NODE_ENV !== "production" && process.env.NODE_ENV !== "test") {
+        console.error(`[tailwind-preset-antd]: '${key}' is not defined in antd design token`);
       }
       continue;
     }
@@ -59,6 +62,10 @@ export function genCSSVarByTokens(
     if (fontSizes.includes(key) || margins.includes(key) || borderRadius.includes(key)) {
       colorsVariables += `--${cssVarPrefix}-${key}:${value}px;`;
       continue;
+    }
+
+    if (boxShadow.includes(key)) {
+      colorsVariables += `--${cssVarPrefix}-${key}:${value};`;
     }
   }
 

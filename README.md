@@ -1,10 +1,14 @@
 像使用 tailwindcss 一样使用 antd design token。
 
-提供常用 antd design token 更易于使用。推荐使用 antd v6 和 tailwindcss v4，但同样支持 antd v5 和 tailwindcss v3。
+推荐使用 antd v6 和 tailwindcss v4，但同样支持 antd>=v5.12（依赖 antd cssVar 变量） 和 tailwindcss v3。
 
 [English](./README.en-US.md) | 简体中文
 
 # 项目介绍
+
+```bash
+npm i tailwind-preset-antd
+```
 
 以前：
 

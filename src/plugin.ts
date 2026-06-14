@@ -4,6 +4,7 @@ import plugin from "tailwindcss/plugin";
 import { DEFAULT_CSS_VAR_PREFIX } from "./constants";
 import {
   createBorderRadius,
+  createBoxShadow,
   createColorPalettes,
   createFontSize,
   createSpacing,
@@ -56,6 +57,9 @@ const twAntdPresetPlugin: PluginWithOptions<PluginOptions> = plugin.withOptions(
           radius: { ...createBorderRadius(cssVarPrefix, twPrefix) }, // v4
           borderRadius: { ...createBorderRadius(cssVarPrefix, twPrefix) }, // v3
           spacing: { ...createSpacing(cssVarPrefix, twPrefix) },
+
+          shadow: { ...createBoxShadow(cssVarPrefix, twPrefix) }, // v4
+          boxShadow: { ...createBoxShadow(cssVarPrefix, twPrefix) }, // v3
         },
       },
     } satisfies Partial<Config>;

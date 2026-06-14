@@ -7,6 +7,7 @@ import {
   semanticColors,
   colorPalettes,
 } from "../preset";
+import { boxShadow } from "../preset/tokens/boxShadow";
 
 function genTwPrefixKey(key: string, prefix?: string) {
   return prefix ? `${prefix}-${key}` : key;
@@ -59,4 +60,12 @@ export function createBorderRadius(
     radiusVar[genTwPrefixKey(key, twPrefix)] = `var(--${cssVarPrefix}-${key})`;
   });
   return radiusVar;
+}
+
+export function createBoxShadow(cssVarPrefix: string = DEFAULT_CSS_VAR_PREFIX, twPrefix?: string) {
+  const boxShadowVar: Record<string, string> = {};
+  boxShadow.forEach((key) => {
+    boxShadowVar[genTwPrefixKey(key, twPrefix)] = `var(--${cssVarPrefix}-${key})`;
+  });
+  return boxShadowVar;
 }

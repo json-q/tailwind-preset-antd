@@ -4,6 +4,7 @@ import {
   createFontSize,
   createSpacing,
   createBorderRadius,
+  createBoxShadow,
 } from "../genTailwindTheme";
 import { colorPalettes } from "../../preset";
 
@@ -91,5 +92,34 @@ describe("createBorderRadius", () => {
     expect(result["borderRadiusSM"]).toBe("var(--a-borderRadiusSM)");
     expect(result["borderRadius"]).toBe("var(--a-borderRadius)");
     expect(result["borderRadiusLG"]).toBe("var(--a-borderRadiusLG)");
+  });
+});
+
+describe("createBoxShadow", () => {
+  it("should create box shadow variables with default prefix", () => {
+    const result = createBoxShadow();
+
+    expect(result["boxShadow"]).toBe("var(--a-boxShadow)");
+    expect(result["boxShadowSecondary"]).toBe("var(--a-boxShadowSecondary)");
+    expect(result["boxShadowTertiary"]).toBe("var(--a-boxShadowTertiary)");
+  });
+
+  it("should create box shadow variables with custom cssVarPrefix", () => {
+    const result = createBoxShadow("custom");
+
+    expect(result["boxShadow"]).toBe("var(--custom-boxShadow)");
+    expect(result["boxShadowSecondary"]).toBe("var(--custom-boxShadowSecondary)");
+  });
+
+  it("should create box shadow variables with custom twPrefix", () => {
+    const result = createBoxShadow("a", "ant");
+
+    expect(result["ant-boxShadow"]).toBe("var(--a-boxShadow)");
+    expect(result["ant-boxShadowSecondary"]).toBe("var(--a-boxShadowSecondary)");
+  });
+
+  it("should create all box shadow entries", () => {
+    const result = createBoxShadow();
+    expect(Object.keys(result).length).toBe(3);
   });
 });
