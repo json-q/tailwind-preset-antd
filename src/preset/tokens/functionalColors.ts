@@ -65,10 +65,13 @@ const infoColors: AliasTokenKey[] = [
   "colorInfoTextActive",
 ];
 
+const linkColors: AliasTokenKey[] = ["colorLink", "colorLinkHover", "colorLinkActive"];
+
 export const functionalColors: AliasTokenKey[] = [
   ...brandColors,
   ...successColors,
   ...warningColors,
   ...errorColors,
   ...infoColors,
+  ...linkColors,
 ];
